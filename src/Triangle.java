@@ -1,8 +1,9 @@
 public class Triangle extends Shape{
+    static String shape = "triangle";
     private double e1;
     private double e2;
     private double e3;
-    static String shape = "triangle";
+
 
     Triangle(double edge1, double edge2, double edge3) {
         this.e1 = edge1;
@@ -10,6 +11,7 @@ public class Triangle extends Shape{
         this.e3 = edge3;
     }
 
+    // Test whether if it is a valid triangle (the sum of the two edges > the third edge)
     private void testValid() throws InvalidTriangle{
         if (e1 + e2 > e3 && e2 + e3 > e1 && e1 + e2 > e3) {
         }
@@ -19,19 +21,22 @@ public class Triangle extends Shape{
     }
 
     @Override
+    // Calculate the area of the triangle
     public double calculateArea() {
-        double p = 0.5 * calculatePerimeter();
-        double area = Math.sqrt(p * (p - e1) * (p - e2) * (p - e3));
+        double h = 0.5 * calculatePerimeter();
+        double area = Math.sqrt(h * (h - e1) * (h - e2) * (h - e3));
         return area;
     }
 
     @Override
+    // Calculate the perimeter of the triangle
     public double calculatePerimeter() {
         return e1 + e2 + e3;
     }
 
     public void display() {
         System.out.println("====================== " + shape + " Test Starts: ======================");
+
         try {
             testValid();
             print();
@@ -51,7 +56,8 @@ class InvalidTriangle extends Exception {
         this.c = c;
     }
 
-    public String getFeedback() {
-        return "Invalid Input";
+    // If it is not a valid triangle, shows "Invalid Ege Input"
+    public String getMessage() {
+        return "Invalid Edge Input";
     }
 }

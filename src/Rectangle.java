@@ -1,7 +1,7 @@
 public class Rectangle extends Shape{
+    static String shape = "rectangle";
     private double length;
     private double width;
-    static String shape = "rectangle";
 
     Rectangle(double a, double b) {
         this.length = a;
@@ -14,11 +14,13 @@ public class Rectangle extends Shape{
     }
 
     @Override
+    // Calculate the area of the rectangle
     public double calculateArea() {
         return length * width;
     }
 
     @Override
+    // Calculate the perimeter of the rectangle
     public double calculatePerimeter() {
         return 2 * (length + width);
     }
