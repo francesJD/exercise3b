@@ -12,12 +12,8 @@ public class Triangle extends Shape{
     }
 
     // Test whether if it is a valid triangle (the sum of the two edges > the third edge)
-    private void testValid() throws InvalidTriangle{
-        if (e1 + e2 > e3 && e2 + e3 > e1 && e1 + e2 > e3) {
-        }
-        else {
-            throw new InvalidTriangle(e1, e2, e3);
-        }
+    private boolean isValid() {
+        return e1 + e2 > e3 && e2 + e3 > e1 && e1 + e2 > e3;
     }
 
     @Override
@@ -37,27 +33,10 @@ public class Triangle extends Shape{
     public void display() {
         System.out.println("====================== " + shape + " Test Starts: ======================");
 
-        try {
-            testValid();
+        if (isValid()) {
             print();
+        } else {
+            System.out.println("Invalid Edge Input");
         }
-        catch (InvalidTriangle e) {
-            e.printStackTrace();
-        }
-    }
-}
-
-class InvalidTriangle extends Exception {
-    double a, b, c;
-
-    InvalidTriangle(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-    }
-
-    // If it is not a valid triangle, shows "Invalid Ege Input"
-    public String getMessage() {
-        return "Invalid Edge Input";
     }
 }

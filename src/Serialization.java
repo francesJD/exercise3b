@@ -25,7 +25,7 @@ public class Serialization {
         Circle newC = null;
         Rectangle newR = null;
         Square newS = null;
-        Triangle newT = null;
+        Triangle newT = new Triangle(1, 2, 3);
         try {
             FileInputStream fileIn = new FileInputStream("Shape.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
